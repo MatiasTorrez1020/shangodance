@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shango Dance Company</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(to right, #ff5722, #b71c1c);
+            color: #fff;
+        }
+
+        header {
+            background-color: #c62828;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 150px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #e53935;
+            padding: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background-color: #ff7043;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        section {
+            position: relative;
+            min-height: 100vh;
+            display: none;
+            overflow: hidden;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section video.bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        section .content {
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin: 30px;
+        }
+
+        h2 {
+            border-bottom: 2px solid #fff;
+            padding-bottom: 10px;
+        }
+
+        .baile-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .baile-buttons button {
+            background-color: #ff8a65;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .baile-content img,
+        .baile-content video {
+            max-width: 100%;
+            margin-top: 15px;
+            border: 2px solid #fff;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #b71c1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                max-height: 100px;
+            }
+        }
+    </style>
+
+    <!-- FontAwesome para íconos -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="shango_dance_img-removebg-preview.png" alt="Logo Shango" class="logo" />
+            <h1>Shango Dance Company</h1>
+        </div>
+    </header>
+
+    <nav>
+        <button type="button" onclick="mostrarSeccion('eventos')">Eventos</button>
+        <button type="button" onclick="mostrarSeccion('bailes')">Bailes</button>
+        <button type="button" onclick="mostrarSeccion('nosotros')">Acerca de Nosotros</button>
+        <button type="button" onclick="mostrarSeccion('direccion')">Dirección</button>
+    </nav>
+
+    <main>
+        <!-- Eventos -->
+        <section id="eventos" class="active">
+            <video class="bg-video" autoplay muted loop>
+                <source src="baile fondo ballet.mp4" type="video/mp4" />
+            </video>
+            <div class="content">
+                <h2>Próximos Eventos</h2>
+                <ul>
+                    <li>📅 20 de julio - Noche de Tango para Adultos</li>
+                    <li>📅 5 de agosto - Festival de Baile Nacional Boliviano</li>
+                    <li>📅 12 de agosto - Gala de Ballet Infantil</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Bailes -->
+        <section id="bailes">
+            <video class="bg-video" autoplay muted loop>
+                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+            </video>
+            <div class="content">
+                <h2>Explora Nuestros Bailes</h2>
+                <div class="baile-buttons">
+                    <button onclick="mostrarBaile('tango')">Tango</button>
+                    <button onclick="mostrarBaile('ballet')">Ballet</button>
+                    <button onclick="mostrarBaile('nacional')">Nacional Boliviano</button>
+                </div>
+
+                <div id="tango" class="baile-content" style="display:none;">
+                    <h3>Tango</h3>
+                    <p>El tango es una danza apasionada...</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Tango_BA.jpg/640px-Tango_BA.jpg" alt="Tango" />
+                    <video controls>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div id="ballet" class="baile-content" style="display:none;">
+                    <h3>Ballet</h3>
+                    <p>El ballet desarrolla disciplina y gracia desde pequeños.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Ballet_dancers_in_white.jpg" alt="Ballet infantil" />
+                    <video controls>
+                        <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <div id="nacional" class="baile-content" style="display:none;">
+                    <h3>Baile Nacional Boliviano</h3>
+                    <p>Celebramos la cultura boliviana con morenada, tinku y caporales.</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Danza_Boliviana_Caporales.jpg" alt="Baile Nacional Boliviano" />
+                    <video controls>
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nosotros -->
+        <section id="nosotros">
+            <video class="bg-video" autoplay muted loop>
+                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+            </video>
+            <div class="content">
+                <h2>Acerca de Nosotros</h2>
+                <p>Somos una compañía de danza con raíces en la cultura boliviana y visión internacional. Enseñamos con pasión, técnica y respeto por el arte.</p>
+            </div>
+        </section>
+
+        <!-- Dirección -->
+        <section id="direccion">
+            <video class="bg-video" autoplay muted loop>
+                <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4" />
+            </video>
+            <div class="content">
+                <h2>Dirección</h2>
+                <p>📍 Calle de la Cultura #123, La Paz, Bolivia</p
+                     <p>✉️ Email: contacto@shangodance.bo</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <strong>Dirección:</strong> Calle de la Cultura #123, La Paz, Bolivia
+            </div>
+            <div>
+                <strong>Contáctanos:</strong>
+                <div class="social-icons">
+                    <a href="https://wa.me/59177712345" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://facebook.com/shangodance" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@shangodance" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/shangodance" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                &copy; 2025 Shango Dance Company. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            // Oculta todas las secciones
+            document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+            document.getElementById(id).classList.add("active");
+
+            // Oculta los contenidos de baile si no está en la sección bailes
+            if (id !== "bailes") {
+                document.querySelectorAll(".baile-content").forEach(b => b.style.display = "none");
+            }
+        }
+
+        function mostrarBaile(id) {
+            // Oculta todos los contenidos de baile
+            document.querySelectorAll(".baile-content").forEach(b => b.style.display = "none");
+            // Muestra solo el baile seleccionado
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>

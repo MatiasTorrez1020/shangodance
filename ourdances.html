@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shango Dance Company - Our Dances</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Re-use general styles from your existing setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px 50px;
+            align-items: center;
+            background-color: #000;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 150px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #e74c3c;
+        }
+
+        .logo-text span {
+            color: #f39c12;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        nav a.active {
+            /* Style for active link */
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        nav a:last-child {
+            /* Still apply for the last specific item if needed */
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        /* --- Our Dances Section Specific Styles --- */
+        .our-dances-section {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #1a1a1a;
+        }
+
+        .our-dances-title {
+            font-size: 60px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .dance-category {
+            max-width: 1200px;
+            width: 100%;
+            margin-bottom: 60px;
+            /* Space between categories */
+        }
+
+        .dance-category h2 {
+            font-size: 40px;
+            color: #f39c12;
+            margin-bottom: 30px;
+            text-align: left;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+
+        .dance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            justify-content: center;
+            /* Center items in the grid */
+        }
+
+        .dance-item {
+            background-color: #2a2a2a;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Align text to the left */
+        }
+
+        .dance-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .dance-item h3 {
+            font-size: 28px;
+            color: #e74c3c;
+            /* Change color for dance names */
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .dance-item p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #ccc;
+            margin-bottom: 15px;
+            flex-grow: 1;
+            /* Allow paragraphs to take up available space */
+        }
+
+        .dance-characteristics {
+            background-color: #3a3a3a;
+            padding: 15px;
+            border-radius: 6px;
+            width: 100%;
+            margin-top: 15px;
+            /* Space above characteristics */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .dance-characteristics h4 {
+            font-size: 18px;
+            color: #f39c12;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .dance-characteristics ul {
+            list-style: none;
+            /* Remove default bullet points */
+            padding-left: 0;
+            text-align: left;
+            /* Align list items to the left */
+        }
+
+        .dance-characteristics ul li {
+            font-size: 15px;
+            color: #ddd;
+            margin-bottom: 5px;
+            position: relative;
+            padding-left: 20px;
+            /* Space for custom bullet */
+        }
+
+        .dance-characteristics ul li::before {
+            content: '•';
+            /* Custom bullet point */
+            color: #e74c3c;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .first-level-section {
+            background-color: #2a2a2a;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            width: 100%;
+            margin-top: 60px;
+            /* Space above this section */
+            text-align: left;
+        }
+
+        .first-level-section h2 {
+            font-size: 40px;
+            color: #f39c12;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+        }
+
+        .first-level-section p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .first-level-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .first-level-section ul li {
+            font-size: 18px;
+            color: #ddd;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.5;
+        }
+
+        .first-level-section ul li::before {
+            content: '✓';
+            /* Checkmark bullet */
+            color: #25D366;
+            /* Green color for checkmark */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* --- Footer Styles (Copied for completeness) --- */
+        footer {
+            background-color: #000;
+            padding: 40px 50px 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            height: 40px;
+            width: auto;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-title {
+            color: #f39c12;
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            color: white;
+            background-color: #333;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-link.whatsapp:hover {
+            background-color: #25D366;
+        }
+
+        .social-link.facebook:hover {
+            background-color: #1877F2;
+        }
+
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .social-link.tiktok:hover {
+            background-color: #000000;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .email-form input,
+        .email-form textarea {
+            padding: 10px;
+            background-color: #333;
+            border: none;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .email-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .email-form button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .email-form button:hover {
+            background-color: #c0392b;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (min-width: 768px) {
+            footer {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .logo-text {
+                font-size: 24px;
+            }
+
+            .logo {
+                height: 120px;
+            }
+
+            header {
+                padding: 20px 30px;
+            }
+
+            .our-dances-section {
+                padding: 40px 30px;
+            }
+
+            .our-dances-title,
+            .dance-category h2,
+            .first-level-section h2 {
+                font-size: 50px;
+            }
+
+            .dance-item h3 {
+                font-size: 24px;
+            }
+
+            .dance-item p,
+            .first-level-section p,
+            .first-level-section ul li {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .logo {
+                height: 100px;
+            }
+
+            .logo-text {
+                font-size: 22px;
+            }
+
+            .our-dances-section {
+                padding: 30px 20px;
+            }
+
+            .our-dances-title,
+            .dance-category h2,
+            .first-level-section h2 {
+                font-size: 40px;
+                margin-bottom: 30px;
+            }
+
+            .dance-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .dance-item img {
+                height: 180px;
+            }
+
+            .dance-category {
+                margin-bottom: 40px;
+            }
+
+            .first-level-section {
+                padding: 30px;
+                margin-top: 40px;
+            }
+
+            .first-level-section p,
+            .first-level-section ul li {
+                font-size: 15px;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .footer-logo-container,
+            .contact-section,
+            .email-form-container {
+                align-items: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .our-dances-title,
+            .dance-category h2,
+            .first-level-section h2 {
+                font-size: 32px;
+            }
+
+            .dance-item h3 {
+                font-size: 20px;
+            }
+
+            .dance-item p,
+            .first-level-section p,
+            .first-level-section ul li {
+                font-size: 14px;
+            }
+
+            .dance-item img {
+                height: 150px;
+            }
+
+            .dance-characteristics h4 {
+                font-size: 16px;
+            }
+
+            .dance-characteristics ul li {
+                font-size: 13px;
+            }
+
+            .first-level-section ul li::before {
+                font-size: 1em;
+                left: -5px;
+                /* Adjust if needed for smaller screens */
+            }
+        }
+
+        /* --- Estilos para el botón flotante de WhatsApp --- */
+        .whatsapp-floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            /* Color de WhatsApp */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            /* Asegura que esté por encima de todo */
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .whatsapp-floating-button:hover {
+            transform: scale(1.1);
+            background-color: #1DA851;
+        }
+
+        /* --- Estilos para la ventana flotante de chat --- */
+        .chat-floating-window {
+            position: fixed;
+            bottom: 110px;
+            /* Ajusta para estar por encima del botón flotante */
+            right: 30px;
+            width: 350px;
+            /* Ancho de la ventana */
+            height: 450px;
+            /* Altura de la ventana */
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            z-index: 999;
+            /* Justo debajo del botón flotante */
+            transform: translateY(20px);
+            /* Para la animación de entrada */
+            opacity: 0;
+            /* Oculto por defecto */
+            visibility: hidden;
+            /* Oculto por defecto */
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s;
+        }
+
+        .chat-floating-window.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Encabezado del chat */
+        .chat-header {
+            background-color: #075E54;
+            /* Color de la barra superior de WhatsApp */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-title-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-company-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .chat-close-btn {
+            font-size: 1.8em;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .chat-close-btn:hover {
+            color: #f0f0f0;
+        }
+
+        .chat-support-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-avatar {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #fff;
+            /* Fondo blanco para el avatar */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .chat-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .whatsapp-online-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #25D366;
+            /* Verde de WhatsApp */
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7em;
+            border: 2px solid #075E54;
+            /* Borde para el icono de online */
+        }
+
+        .chat-support-text p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .chat-role {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .chat-service {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Cuerpo del chat */
+        .chat-body {
+            flex-grow: 1;
+            background-color: #E5DDD5;
+            /* Fondo claro de chat de WhatsApp */
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            /* Mensajes en la parte inferior */
+            gap: 10px;
+            overflow-y: auto;
+            /* Para scroll si hay muchos mensajes */
+        }
+
+        .chat-message-bubble {
+            background-color: #DCF8C6;
+            /* Burbuja de mensaje enviado (claro) */
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 0;
+            /* Forma de burbuja de WhatsApp */
+            max-width: 80%;
+            align-self: flex-start;
+            /* Se alinea a la izquierda */
+            color: #333;
+            font-size: 0.95em;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Área de entrada de texto */
+        .chat-input-area {
+            display: flex;
+            padding: 15px 20px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+            gap: 10px;
+        }
+
+        .chat-input-area textarea {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 10px 15px;
+            font-size: 1em;
+            resize: none;
+            /* No permitir redimensionar por el usuario */
+            height: 40px;
+            /* Altura inicial */
+            overflow-y: hidden;
+            /* Ocultar scrollbar inicialmente */
+            transition: height 0.2s ease-out;
+        }
+
+        .chat-input-area textarea:focus {
+            outline: none;
+            border-color: #25D366;
+            box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.3);
+        }
+
+        .chat-send-button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .chat-send-button:hover {
+            background-color: #1DA851;
+            transform: scale(1.05);
+        }
+
+        /* Pie de página del chat */
+        .chat-footer {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-whatsapp-link {
+            color: #25D366;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+
+        .chat-whatsapp-link:hover {
+            color: #1DA851;
+        }
+
+        /* Media Queries para responsividad */
+        @media (max-width: 768px) {
+            .whatsapp-floating-button {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .chat-floating-window {
+                bottom: 90px;
+                right: 20px;
+                width: 90%;
+                /* Más ancho en móviles */
+                max-width: 320px;
+                /* Pero con un máximo */
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .chat-floating-window {
+                bottom: 80px;
+                right: 15px;
+                width: calc(100% - 30px);
+                /* Ocupa casi todo el ancho de la pantalla */
+                height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="shango_dance_img-removebg-preview.png" alt="Shango Dance Company Logo" class="logo">
+            <div class="logo-text">SHANGO <span>DANCE</span></div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="event.html">Event</a>
+            <a href="ourdances.html" class="active">Our Dances</a>
+            <a href="contact.html">Contact</a>
+            <a href="#">Q</a>
+        </nav>
+    </header>
+
+    <main class="our-dances-section">
+        <h1 class="our-dances-title">OUR DANCES</h1>
+
+        <div class="dance-category">
+            <h2>1. Ritmos Latinos</h2>
+            <div class="dance-grid">
+                <div class="dance-item">
+                    <img src="salsa_dance.jpg" alt="Salsa Dance">
+                    <h3>Salsa</h3>
+                    <p>
+                        Salsa is a vibrant and energetic dance form originating from Latin America, known for its quick
+                        steps, intricate turns, and playful partner work. It's a social dance that emphasizes rhythm and
+                        connection.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Fast-paced, high energy</li>
+                            <li>Lead and follow partner dance</li>
+                            <li>Features spins, shimmies, and body isolations</li>
+                            <li>Strong emphasis on hip movement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="mambo dance.jpg" alt="Mambo Dance">
+                    <h3>Mambo</h3>
+                    <p>
+                        Mambo is an energetic and expressive dance characterized by its distinctive "break" step,
+                        dynamic turns, and strong Afro-Cuban influences. It's often performed with flair and passion.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Originated from Cuba, influenced by swing and jazz</li>
+                            <li>Emphasis on the "Mambo break" (forward/backward step)</li>
+                            <li>Features open breaks and strong hip action</li>
+                            <li>Often performed on 2 (count)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="cha cha cha DANCE.jpg" alt="Cha Cha Cha Dance">
+                    <h3>Cha Cha Cha</h3>
+                    <p>
+                        The Cha-cha-chá is a lively, rhythmic dance of Cuban origin, named for the sound of the dancers'
+                        shoes on the floor. It's famous for its distinctive "cha-cha-cha" triple step.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Triple step (cha-cha-cha)</li>
+                            <li>Playful and flirtatious movements</li>
+                            <li>Syncopated rhythm</li>
+                            <li>Often danced to Latin pop or authentic Cuban music</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="bachata_dance.jpg" alt="Bachata Dance">
+                    <h3>Bachata</h3>
+                    <p>
+                        Bachata is a social dance from the Dominican Republic, characterized by its sensual movements,
+                        close partner connection, and signature "tap" or "pop" on the fourth beat.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Romantic and sensual style</li>
+                            <li>Prominent hip movement (especially for ladies)</li>
+                            <li>Includes a "tap" or "pop" on the 4th/8th beat</li>
+                            <li>Can be danced in close or open position</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="kizomba dance.jpg" alt="Kizomba Dance">
+                    <h3>Kizomba</h3>
+                    <p>
+                        Kizomba is a beautiful and intimate partner dance originating from Angola, known for its smooth,
+                        slow, and sensual movements, and a strong connection between partners.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Close embrace, intimate connection</li>
+                            <li>Slow, sensual, and flowing movements</li>
+                            <li>Strong lead and follow communication</li>
+                            <li>Often includes body waves and dips</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-category">
+            <h2>2. Ritmos de Salón</h2>
+            <div class="dance-grid">
+                <div class="dance-item">
+                    <img src="sport_dance.jpg" alt="Sport Dance">
+                    <h3>Sport Dance</h3>
+                    <p>
+                        Sport Dance (often referring to Ballroom and Latin American Dancesport) combines technical
+                        precision, athleticism, and artistry. It's highly competitive and visually stunning.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Highly structured and technical</li>
+                            <li>Focus on posture, frame, and footwork</li>
+                            <li>Competitive aspect with specific rules</li>
+                            <li>Includes both Standard (Waltz, Tango, Foxtrot) and Latin (Cha-cha, Samba, Rumba) styles
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="tango_dance.jpg" alt="Tangos">
+                    <h3>Tangos</h3>
+                    <p>
+                        Argentine Tango is a passionate and improvisational partner dance with deep roots in Buenos
+                        Aires. It is characterized by its dramatic pauses, close embrace, and intricate leg movements.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Close embrace, strong connection</li>
+                            <li>Improvisational, relies on lead and follow</li>
+                            <li>Dramatic pauses and sharp movements</li>
+                            <li>Features "ochos," "gira," and "sacadas"</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="valses_dance.jpg" alt="Valses">
+                    <h3>Valses</h3>
+                    <p>
+                        Waltz is a classic ballroom dance known for its elegant, flowing, and rotational movements. The
+                        Viennese Waltz is faster and more exhilarating, while the Slow Waltz is more graceful and
+                        controlled.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Smooth, continuous turns and rotations</li>
+                            <li>Elegant and graceful posture</li>
+                            <li>Strong sense of musicality to 3/4 time signature</li>
+                            <li>Both Slow (English) and Viennese variations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="boleros_dance.jpg" alt="Boleros">
+                    <h3>Boleros</h3>
+                    <p>
+                        Bolero is a slow, romantic Latin dance, often called the "dance of love." It combines elements
+                        of Rumba, Waltz, and Tango, creating a sensuous and dramatic experience.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Slow, expressive, and romantic</li>
+                            <li>Combines Rumba, Tango, and Waltz elements</li>
+                            <li>Known for dramatic pauses and sustained movements</li>
+                            <li>Strong emotional connection between partners</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dance-category">
+            <h2>3. Ritmos Folklóricos</h2>
+            <div class="dance-grid">
+                <div class="dance-item">
+                    <img src="folklore_nacional_dance.jpg" alt="Folklore Nacional Dance">
+                    <h3>Folklore Nacional</h3>
+                    <p>
+                        Our National Folklore dances delve into the rich cultural heritage of [Your Country/Region,
+                        e.g., Bolivia], showcasing traditional steps, costumes, and music that tell stories of our land
+                        and people.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Authentic traditional dances of [Your Country/Region]</li>
+                            <li>Celebrates local customs and history</li>
+                            <li>Often performed in traditional attire</li>
+                            <li>Varies greatly by region (e.g., Caporales, Morenada, Cueca)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="dance-item">
+                    <img src="folklore_internacional_dance.jpg" alt="Folklore Internacional Dance">
+                    <h3>Folklore Internacional</h3>
+                    <p>
+                        Explore the diverse world of international folklore through dances from various cultures. Learn
+                        about the global tapestry of traditional movements, music, and storytelling.
+                    </p>
+                    <div class="dance-characteristics">
+                        <h4>Characteristics:</h4>
+                        <ul>
+                            <li>Dances from different countries and cultures</li>
+                            <li>Exploration of global dance traditions</li>
+                            <li>Understanding diverse rhythms and expressions</li>
+                            <li>Examples: Samba (Brazil), Flamenco (Spain), Irish Step Dance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="first-level-section">
+            <h2>Primer Nivel: Foundational Training</h2>
+            <p>
+                Prior to advancing into specific dance rhythms, all aspiring dancers at Shango Dance Company must
+                successfully complete our comprehensive **Primer Nivel**. This foundational program ensures every
+                student develops a strong understanding of essential dance principles and prepares them for specialized
+                training.
+            </p>
+            <ul>
+                <li>**Terminología de Ballets:** Understanding the fundamental vocabulary and positions of classical
+                    ballet, crucial for all dance forms.</li>
+                <li>**Terminología de Ritmos de Salón:** Familiarization with the specific terms, figures, and concepts
+                    used in ballroom and social dance.</li>
+                <li>**Terminología de Folklore:** Learning the specialized terminology associated with national and
+                    international folkloric dance styles.</li>
+                <li>**Teorías y conceptos de escenarios, shows y performances:** Gaining theoretical knowledge about
+                    stage presence, showmanship, performance dynamics, and audience engagement.</li>
+                <li>**Expresión corporal, facial y manejo de escenario:** Developing control over body and facial
+                    expressions, and mastering effective stage movement and blocking.</li>
+                <li>**Timing y musicalidad:** Cultivating a deep connection to music, understanding rhythm, tempo, and
+                    how to interpret musicality through movement.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-logo-container">
+            <img src="shango-logo.png" alt="Shango Dance Company Footer Logo" class="footer-logo">
+            <div class="copyright">© 2023 Shango Dance Company. All rights reserved.</div>
+        </div>
+
+        <div class="contact-section">
+            <h3 class="contact-title">CONTACT US</h3>
+            <div class="social-links">
+                <a href="https://wa.me/59168335545?text=Hola%2C%20necesito%20más%20información%20de%20Shango%20Dance" class="social-link whatsapp" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com/people/Shang%C3%B3-Dance-Company/100066723337228/"
+                    class="social-link facebook" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/shangodance/" class="social-link instagram" target="_blank"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@shangodance2art" class="social-link tiktok" target="_blank"
+                    aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="email-form-container">
+            <form class="email-form" action="YOUR_SERVER_SIDE_SCRIPT_FOR_EMAIL_SUBMISSION" method="POST">
+                <input type="email" name="email" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </footer>
+    <div class="whatsapp-floating-button" title="Chatea con nosotros en WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <div class="chat-floating-window">
+        <div class="chat-header">
+            <div class="chat-title-group">
+                <h3 class="chat-company-name">Shango Dance Company</h3>
+                <span class="chat-close-btn">&times;</span>
+            </div>
+            <div class="chat-support-info">
+                <div class="chat-avatar">
+                    <img src="https://via.placeholder.com/40" alt="Soporte"> <span class="whatsapp-online-icon"><i
+                            class="fab fa-whatsapp"></i></span>
+                </div>
+                <div class="chat-support-text">
+                    <p class="chat-role">Soporte</p>
+                    <p class="chat-service">Servicio al cliente</p>
+                </div>
+            </div>
+        </div>
+        <div class="chat-body">
+            <div class="chat-message-bubble">
+                ¡Hola! ¿Qué puedo hacer por ti?
+            </div>
+            <div class="chat-input-area">
+                <textarea id="whatsappMessage" placeholder="Escribe un mensaje"></textarea>
+                <button id="sendWhatsapp" class="chat-send-button" title="Enviar mensaje por WhatsApp">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        <div class="chat-footer">
+            <a href="#" class="chat-whatsapp-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> Chatea con nosotros
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Configuración de WhatsApp ---
+            const WHATSAPP_NUMBER = "59168335545"; // <--- CAMBIA ESTE NÚMERO POR EL TUYO (sin el signo '+', solo dígitos)
+            const DEFAULT_MESSAGE = "¡Hola! Estoy interesado en Shango Dance Company. "; // Mensaje predeterminado al abrir el chat
+
+            const floatingButton = document.querySelector('.whatsapp-floating-button');
+            const chatWindow = document.querySelector('.chat-floating-window');
+            const closeButton = document.querySelector('.chat-close-btn');
+            const whatsappMessageInput = document.getElementById('whatsappMessage');
+            const sendWhatsappButton = document.getElementById('sendWhatsapp');
+            const chatWhatsappLink = document.querySelector('.chat-whatsapp-link');
+            const chatBubble = document.querySelector('.chat-message-bubble'); // El mensaje inicial del bot
+
+            // Función para construir el enlace de WhatsApp
+            const buildWhatsappLink = (message) => {
+                const encodedMessage = encodeURIComponent(message);
+                // Para escritorio y móvil (web.whatsapp.com también funciona en móvil)
+                return `https://web.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+                // Si solo quieres abrir la app en móvil: return `whatsapp://send?phone=${WHATSAPP_NUMBER}&text=${encodedMessage}`;
+            };
+
+            // --- Event Listeners ---
+
+            // Abrir la ventana de chat al hacer clic en el botón flotante
+            if (floatingButton) {
+                floatingButton.addEventListener('click', () => {
+                    chatWindow.classList.add('active');
+                    // Al abrir, si hay un mensaje predefinido, lo pone en el input
+                    if (whatsappMessageInput.value === '') {
+                        whatsappMessageInput.value = DEFAULT_MESSAGE;
+                    }
+                    // Actualiza el enlace del footer al abrir
+                    chatWhatsappLink.href = buildWhatsappLink(whatsappMessageInput.value);
+                    // Enfoca el textarea
+                    whatsappMessageInput.focus();
+                    // Ajusta la altura del textarea
+                    autoResizeTextarea();
+                });
+            }
+
+            // Cerrar la ventana de chat al hacer clic en el botón de cerrar
+            if (closeButton) {
+                closeButton.addEventListener('click', () => {
+                    chatWindow.classList.remove('active');
+                });
+            }
+
+            // Enviar mensaje por WhatsApp al hacer clic en el botón de enviar
+            if (sendWhatsappButton) {
+                sendWhatsappButton.addEventListener('click', () => {
+                    const message = whatsappMessageInput.value.trim();
+                    if (message) {
+                        window.open(buildWhatsappLink(message), '_blank');
+                        // Opcional: limpiar el input después de enviar
+                        // whatsappMessageInput.value = '';
+                        // autoResizeTextarea(); // Resetear la altura del textarea
+                    }
+                });
+            }
+
+            // Actualizar el enlace del footer y ajustar la altura del textarea mientras se escribe
+            if (whatsappMessageInput) {
+                whatsappMessageInput.addEventListener('input', () => {
+                    chatWhatsappLink.href = buildWhatsappLink(whatsappMessageInput.value);
+                    autoResizeTextarea();
+                });
+
+                // Función para auto-redimensionar el textarea
+                function autoResizeTextarea() {
+                    whatsappMessageInput.style.height = 'auto'; // Reset height
+                    // Establece la altura mínima, luego ajústala al scrollHeight
+                    let newHeight = Math.min(whatsappMessageInput.scrollHeight, 120); // Máximo 120px de altura
+                    whatsappMessageInput.style.height = newHeight + 'px';
+                }
+
+                // Establecer el mensaje inicial en el bubble (si no está ya en HTML)
+                // Esto es si el mensaje de "Hola, ¿qué puedo hacer por ti?" lo quieres manejar desde JS
+                // if (chatBubble) {
+                //     chatBubble.textContent = "¡Hola! ¿Qué puedo hacer por ti?";
+                // }
+            }
+
+            // Asegúrate de que el enlace del footer esté configurado correctamente al cargar la página
+            if (chatWhatsappLink) {
+                chatWhatsappLink.href = buildWhatsappLink(DEFAULT_MESSAGE);
+            }
+
+            // --- Código existente del carrusel de bailes (NO TOCAR) ---
+            const carouselContainer = document.getElementById('danceCarousel');
+            if (carouselContainer) {
+                const carouselItems = Array.from(carouselContainer.children);
+                carouselItems.forEach(item => {
+                    carouselContainer.appendChild(item.cloneNode(true));
+                });
+            }
+
+            // --- Script para el escalado de imágenes/videos en info-items (NO TOCAR, es para index.html) ---
+            const infoItems = document.querySelectorAll('.info-item');
+
+            infoItems.forEach(item => {
+                const mediaElement = item.querySelector('img, video');
+
+                if (mediaElement) {
+                    mediaElement.addEventListener('mouseenter', () => {
+                        mediaElement.style.transform = 'scale(3)';
+                        mediaElement.style.zIndex = '100';
+                        if (getComputedStyle(mediaElement).position === 'static') {
+                            mediaElement.style.position = 'relative';
+                        }
+                    });
+
+                    mediaElement.addEventListener('mouseleave', () => {
+                        mediaElement.style.transform = 'scale(1)';
+                        mediaElement.style.zIndex = '1';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
